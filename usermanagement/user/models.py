@@ -1,6 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .utils.helper_functions import calculate_age
+from django.db import models
 
 
 # Custom user model

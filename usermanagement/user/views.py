@@ -1,12 +1,12 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from dotenv import load_dotenv
-from rest_framework.permissions import IsAuthenticated
-from .services.user_services import *
-from .utils.db_logging import log_in_db
 from user.celery_task import scheduled_log_deletion, send_upcoming_birthday_reminder
 from .utils.helper_functions import find_birthday_next_week
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .utils.db_logging import log_in_db
+from .services.user_services import *
+from rest_framework import status
+from dotenv import load_dotenv
 
 load_dotenv()
 

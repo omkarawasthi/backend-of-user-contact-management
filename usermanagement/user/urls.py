@@ -1,5 +1,5 @@
-from django.urls import path
 from .views import RegisterAPIView, LoginAPIView, UserListAPIView, UserDetailedAPIView, UserUpdateDeleteAPIView, LogDeletionView, SearchUserAPIView, BirthdayAPIView, SendingEmailToAllView
+from django.urls import path
 
 urlpatterns = [
     path('login',LoginAPIView.as_view()),

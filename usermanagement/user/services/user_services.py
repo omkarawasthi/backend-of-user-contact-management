@@ -1,7 +1,6 @@
 from ..serializers import UserSerializer, ContactSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.shortcuts import get_object_or_404
-from datetime import datetime, timedelta
 from ..utils.db_logging import log_in_db
 from rest_framework import serializers
 from django.core.cache import cache

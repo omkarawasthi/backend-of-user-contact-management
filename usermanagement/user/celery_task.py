@@ -1,9 +1,8 @@
-from celery import shared_task
-from django.conf import settings
+from .utils.db_logging import delete_old_logs
+from django.core.mail import send_mail
 from datetime import date,timedelta
 from .models import Contact, User
-from django.core.mail import send_mail
-from .utils.db_logging import delete_old_logs
+from celery import shared_task
 from datetime import timedelta
 
 @shared_task
