@@ -65,7 +65,7 @@ ALLOWED_HOSTS = ['*']  # Not recommended for production, but works for quick dep
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    'backend-of-user-contact-management.onrender.com',
+    'https://backend-of-user-contact-management.onrender.com',
     "https://frontend-user-contact-management-pr-steel.vercel.app",
 ]
 
