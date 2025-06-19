@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ALLOWED_HOSTS = ['*']  # Not recommended for production, but works for quick deploy testing
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
