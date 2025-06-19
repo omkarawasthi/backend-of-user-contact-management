@@ -1,0 +1,13 @@
+Django
+djangorestframework
+djangorestframework-simplejwt
+psycopg2-binary
+pymongo
+python-dotenv
+django-redis
+redis
+celery
+drf-yasg
+gunicorn
+python-dateutil
+django-crontab

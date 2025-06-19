@@ -1,0 +1,10 @@
+venv
+.env
+usermanagement/backup/
+usermanagement/backup_contacts
+usermanagement/user/__pycache__
+usermanagement/user/services/__pycache__
+usermanagement/user/migrations/__pycache__
+usermanagement/user/utils/__pycache__
+usermanagement/celerybeat-schedule.db
+usermanagement/__pycache__
