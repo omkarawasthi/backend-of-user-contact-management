@@ -17,7 +17,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = ['*']  # Not recommended for production, but works for quick deploy testing
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
@@ -177,21 +176,6 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 
 # Email Configuration
-# SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
-# EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
-# EMAIL_HOST = os.environ.get('EMAIL_HOST') 
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') 
-# EMAIL_FROM = os.environ.get('EMAIL_FROM')
-
-
-
-
-
-
-
-
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
 EMAIL_HOST = os.environ.get('EMAIL_HOST')        # or your provider’s SMTP host
 EMAIL_PORT = os.environ.get('EMAIL_PORT')                      # TLS port
