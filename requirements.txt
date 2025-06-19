@@ -11,3 +11,4 @@ drf-yasg
 gunicorn
 python-dateutil
 django-crontab
+django-cors-headers
