@@ -261,11 +261,13 @@ def get_user_by_id(user_id):
 def delete_user_by_id(user_id):
     # get the user from the id.
     user = get_object_or_404(User, id=user_id)
+    contact = get_object_or_404(Contact, id = user_id)
     
     # delete user send response.
     user.delete()
+    contact.delete()
 
-    log_in_db("INFO", "DELETE", "User AND Contact", {"message": "User deleted successfully."})
+    log_in_db("INFO", "DELETE", "User AND Contact", {"message": "User and it's contact deleted successfully."})
     return {"success":True,"message": "User deleted successfully."}, status.HTTP_204_NO_CONTENT
 
 
