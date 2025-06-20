@@ -107,7 +107,7 @@ def register_user(data):
         }
         
         
-        log_in_db("INFO", "CREATE", "User", {"message": "User created successfully.","User":user_data})
+        # log_in_db("INFO", "CREATE", "User", {"message": "User created successfully.","User":user_data})
 
         return {"success":True,"message": "User created successfully.","User":data_send},status.HTTP_201_CREATED
     
