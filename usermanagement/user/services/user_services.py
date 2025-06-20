@@ -180,7 +180,7 @@ def login_user(data):
 
     refresh = RefreshToken.for_user(user)
     access_token = str(refresh.access_token)
-    log_in_db("INFO", "LOGIN", "User", {"message": "User Login Successfully"})
+    # log_in_db("INFO", "LOGIN", "User", {"message": "User Login Successfully"})
     
     return {"success":True,"accessToken": access_token, "user": data_send}, status.HTTP_200_OK
 
