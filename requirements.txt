@@ -12,3 +12,4 @@ gunicorn
 python-dateutil
 django-crontab
 django-cors-headers
+gunicorn

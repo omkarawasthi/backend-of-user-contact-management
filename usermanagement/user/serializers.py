@@ -42,10 +42,9 @@ class ContactSerializer(serializers.ModelSerializer):
     def validate_phone_no(self, value):
         pattern = r'^\+[1-9]\d{1,14}$'
         if not re.match(pattern, value):
-            raise serializers.ValidationError(
-                'Phone number must be entered in the format: "+999...". Up to 13 digits allowed.'
-            )
+            raise serializers.ValidationError('Phone number must be entered in the format: "+91"')
         return value
+    
     def validate_date_of_birth(self, value):
         if value > date.today():
             raise serializers.ValidationError("Date of birth cannot be in the future.")

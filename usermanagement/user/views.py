@@ -17,8 +17,8 @@ class RegisterAPIView(APIView):
            response, statuscode = register_user(request.data)
            return Response({**response}, status=statuscode)
         except Exception as e:
-            log_in_db("Error", "CREATE", "User", {"message": "Something went wrong.", "Error": str(e)})
-            return Response({"success":False,"message": "Something went wrong.", "Error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log_in_db("Error", "CREATE", "User", {"message": "Something went wrong.", "error": str(e)})
+            return Response({"success":False,"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class LoginAPIView(APIView):
@@ -28,8 +28,8 @@ class LoginAPIView(APIView):
             return Response({**response}, status=statuscode)
 
         except Exception as e:
-            log_in_db("Error", "LOGIN", "User", {"message": "Something went wrong.", "Error": str(e)})
-            return Response({"success":False,"message": "Something went wrong.", "Error": str(e)},
+            log_in_db("Error", "LOGIN", "User", {"message": "Something went wrong.", "error": str(e)})
+            return Response({"success":False,"message": "Something went wrong.", "error": str(e)},
                             status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
@@ -40,7 +40,7 @@ class UserDetailedAPIView(APIView):
             response, statuscode = get_user_by_id(id)
             return Response({**response}, status=statuscode)
         except Exception as e:
-            return Response({"success": False, "message": "Something went wrong.", "Error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({"success": False, "message": "Something went wrong.", "error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class UserListAPIView(APIView):
@@ -51,7 +51,7 @@ class UserListAPIView(APIView):
             response, statuscode = get_all_users()
             return Response({**response}, status=statuscode)
         except Exception as e:
-            return Response({"success": False, "message": "Something went wrong.", "Error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({"success": False, "message": "Something went wrong.", "error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class UserUpdateDeleteAPIView(APIView):
@@ -62,16 +62,16 @@ class UserUpdateDeleteAPIView(APIView):
             response, statuscode = delete_user_by_id(id)
             return Response({**response}, status=statuscode)
         except Exception as e:
-            log_in_db("Error", "DELETE", "User", {"message": "Something went wrong.", "Error": str(e)})
-            return Response({"success": False, "message": "Something went Wrong.", "Error": str(e)}, status=status.HTTP_204_NO_CONTENT)
+            log_in_db("Error", "DELETE", "User", {"message": "Something went wrong.", "error": str(e)})
+            return Response({"success": False, "message": "Something went Wrong.", "error": str(e)}, status=status.HTTP_204_NO_CONTENT)
 
     def put(self, request, id):
         try:
             response, statuscode = update_user_and_contact(id, request.data)
             return Response({**response}, status=statuscode)
         except Exception as e:
-            log_in_db("Error", "UPDATE", "User", {"message": "Something went wrong.", "Error": str(e)})
-            return Response({"success": False, "message": "Something went wrong.", "Error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log_in_db("Error", "UPDATE", "User", {"message": "Something went wrong.", "error": str(e)})
+            return Response({"success": False, "message": "Something went wrong.", "error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class LogDeletionView(APIView):

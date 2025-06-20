@@ -14,7 +14,7 @@ load_dotenv()
 
 
 def register_user(data):
-    print("data is :",data)
+    # print("data is :",data)
     first_name  = data["first_name"]
     last_name = data["last_name"]
     email       = data["email"]
@@ -24,22 +24,36 @@ def register_user(data):
     date_of_birth = data["date_of_birth"]
     username = data["username"]
 
+
     # If any field is missing then return all field requireds.
     if not all([first_name, last_name, email, password, phone_no, date_of_birth, aadhar_no, username]):
         log_in_db("User Form Error", "CREATE", "User", {"message": "All fields are required."})
         return {"success":False,"message": "All fields are required."},status.HTTP_400_BAD_REQUEST
 
+    
     validate_email = UserSerializer().validate_email(email)
 
+    print("yaha aa rha hia")
     if not validate_email:
         log_in_db("ERROR", "CREATE", "User", {"message": "Please write correct format of Email."})
+        print("yaha ja rha hai na")
         return {"success":False,"message": "Please write correct format of Email."}, status.HTTP_400_BAD_REQUEST
     
+
+    validate_phone = ContactSerializer().validate_phone_no(phone_no)
+
+    if not validate_phone:
+        log_in_db("ERROR", "CREATE", "User", {"message": "Please write correct format of Phone no."})
+        print("yaha ja rha hai na")
+        return {"success":False, "message": "Please write correct format of Phone no."}, status.HTTP_400_BAD_REQUEST
+
+
     #if email already exits then send that email already exits.
     if User.objects.filter(email=email).exists():
         log_in_db("ERROR", "CREATE", "User", {"message": "Email already registered."})
-        return {"success":False,"message": "Email already registered."}, status.HTTP_400_BAD_REQUEST
+        return {"success":False,"error": "Email already registered."}, status.HTTP_400_BAD_REQUEST
     
+
     # Find user using email.
     user = User.objects.filter(email=email)
     
@@ -349,7 +363,7 @@ def search_users(filters):
         qs = qs.filter(name_q)
 
     
-    serializer = ContactSerializer(qs, many=True)
+    ContactSerializer(qs, many=True)
     
     # user = contact.user
     results = []
@@ -361,4 +375,3 @@ def search_users(filters):
     # print("searched data :", serializer.data)
 
     return {"success": True, "message": "Filtered users retrieved.", "users": results}
-

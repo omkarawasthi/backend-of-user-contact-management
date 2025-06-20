@@ -25,7 +25,7 @@ def log_in_db(level, action, resource, details=None):
             "resource": resource,
             "details": details or {}
         }
-
+    print("logs printed :",logs_collection)
     logs_collection.insert_one(log_entry)
 
 
