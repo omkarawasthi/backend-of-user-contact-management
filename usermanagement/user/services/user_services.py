@@ -23,7 +23,7 @@ def register_user(data, image=None):
     aadhar_no = data["aadhar_no"]
     date_of_birth = data["date_of_birth"]
     username = data["username"]
-    image = data.get("image")
+    # image = data.get("image")
 
 
     # If any field is missing then return all field requireds.
