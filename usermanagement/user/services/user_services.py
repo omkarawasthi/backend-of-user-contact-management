@@ -171,7 +171,7 @@ def login_user(data):
     data_send['phone_no'] = contact_data.get('phone_no')# type: ignore
     data_send['aadhar_no'] = contact_data.get('aadhar_no')# type: ignore
     data_send['date_of_birth'] = contact_data.get('date_of_birth')# type: ignore
-
+    data_send['image'] = contact_data.get('image')# type: ignore
 
 
     # payload = serializer.data.copy()
