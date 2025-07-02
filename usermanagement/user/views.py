@@ -14,8 +14,8 @@ class RegisterAPIView(APIView):
     
     def post(self,request):
         try:
-           files = request.FILES
-           response, statuscode = register_user(request.data,files)
+           image = request.FILES.get("image")
+           response, statuscode = register_user(request.data,image)
            return Response({**response}, status=statuscode)
         except Exception as e:
             log_in_db("Error", "CREATE", "User", {"message": "Something went wrong.", "error": str(e)})

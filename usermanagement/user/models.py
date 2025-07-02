@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from .utils.helper_functions import calculate_age
+from cloudinary.models import CloudinaryField
 from django.db import models
 
 
@@ -27,6 +28,7 @@ class Contact(models.Model):
     aadhar_no = models.CharField(max_length=25, unique=True)
     phone_no = models.CharField(max_length=13,unique=True)
     date_of_birth = models.DateField()
+    image = CloudinaryField('image', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 

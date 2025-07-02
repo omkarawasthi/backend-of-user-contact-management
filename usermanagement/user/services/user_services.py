@@ -13,7 +13,7 @@ import json
 load_dotenv()
 
 
-def register_user(data, files=None):
+def register_user(data, image=None):
     # print("data is :",data)
     first_name  = data["first_name"]
     last_name = data["last_name"]
@@ -24,7 +24,6 @@ def register_user(data, files=None):
     date_of_birth = data["date_of_birth"]
     username = data["username"]
     image = data.get("image")
-    profile_image = files.get("profile_image") if files else None
 
 
     # If any field is missing then return all field requireds.
@@ -76,7 +75,8 @@ def register_user(data, files=None):
         "last_name": last_name,
         "phone_no": phone_no,
         "aadhar_no": aadhar_no,
-        "date_of_birth": date_of_birth
+        "date_of_birth": date_of_birth,
+        "image":image,
     }
     
     #convert data to db object to insert into db.

@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'user',
     'drf_yasg',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -209,4 +211,16 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(minute='*/1'),
         'args': [24],
     },
+}
+
+
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
