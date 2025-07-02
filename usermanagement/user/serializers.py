@@ -35,6 +35,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 # Contactserialzer to convert the data from one object to another object (python object to json and vice versa)
 class ContactSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(required=False)
     class Meta:
         model = Contact
         fields = '__all__'
