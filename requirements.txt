@@ -15,3 +15,4 @@ django-cors-headers
 gunicorn
 cloudinary 
 django-cloudinary-storage
+Pillow
